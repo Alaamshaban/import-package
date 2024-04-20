@@ -1,0 +1,34 @@
+{
+  "name": "@khaznatech/import-package",
+  "version": "3.0.0",
+  "scripts": {
+    "build": "ng build",
+    "pack": "cd dist/khazna-import-package && npm pack",
+    "publish": "cd dist/khazna-import-package && npm publish"
+  },
+  "peerDependencies": {
+    "@angular/animations": "^14.2.12",
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0",
+    "@angular/router": "^14.2.12",
+    "primeflex": "^3.2.1",
+    "primeicons": "^6.0.1",
+    "primeng": "^14.2.3",
+    "rxjs": "^7.8.1"
+  },
+  "dependencies": {
+    "@khaznatech/export-package": "^2.0.1",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^15.2.7",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
+    "eslint": "^8.29.0",
+    "ng-packagr": "^15.2.2",
+    "primeflex": "^3.2.1",
+    "primeicons": "^6.0.1",
+    "primeng": "^14.2.3"
+  },
+  "sideEffects": false
+}

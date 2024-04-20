@@ -1,0 +1,20 @@
+<div class="card">
+  <p-table [value]="data" [columns]="cols" [breakpoint]="'960px'"
+    [tableStyle]="{'min-width': cols.length<12?'88rem':'170vw'}">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns" class="headerCell" [ngClass]="{'error-col':col==='errors' && cols.length < 12}">
+          {{ col }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td [ngClass]="{'error-cell':col==='errors'}" *ngFor=" let col of columns" class="p-column-title"
+          pTooltip="{{ checkLength(rowData[col]) ? rowData[col] : null }}" tooltipPosition="top">
+          {{ getRowData(rowData[col]) }}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

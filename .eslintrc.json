@@ -1,0 +1,50 @@
+{
+  "env": {
+      "browser": true,
+      "es2021": true
+  },
+  "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+      "ecmaVersion": "latest",
+      "project": "./tsconfig.json",
+      "sourceType": "module"
+  },
+  "plugins": [
+      "@typescript-eslint"
+  ],
+  "rules": {
+    "@typescript-eslint/array-type": "warn",
+    "@typescript-eslint/ban-tslint-comment": "warn",
+    "@typescript-eslint/ban-types": "error",
+    "@typescript-eslint/class-literal-property-style": "warn",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": ["function","variable"],
+        "format": ["camelCase"]
+      }] ,
+      "@typescript-eslint/no-base-to-string": "warn",
+      "@typescript-eslint/no-confusing-non-null-assertion": "warn",
+      "@typescript-eslint/no-duplicate-enum-values": "warn",
+      "@typescript-eslint/no-dynamic-delete": "error",
+      "@typescript-eslint/no-empty-interface": "error",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-extraneous-class": "warn",
+      "@typescript-eslint/no-for-in-array": "warn",
+      "@typescript-eslint/no-inferrable-types": "error",
+      "@typescript-eslint/no-meaningless-void-operator": "warn",
+      "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-this-alias": "error",
+      "@typescript-eslint/no-unnecessary-boolean-literal-compare": "warn",
+      "@typescript-eslint/no-unnecessary-condition": "warn",
+      // "@typescript-eslint/no-unsafe-argument": "warn",
+      // "@typescript-eslint/no-unsafe-assignment": "warn",
+      "@typescript-eslint/prefer-for-of": "warn",
+      "@typescript-eslint/prefer-function-type": "warn"
+
+  }
+}

@@ -1,0 +1,73 @@
+<div class="upload-container">
+  <div class="hints">
+    <div></div>
+    <div class="link">
+      <div class="sample-container">
+        <p-icon class="pi pi-download accepted-icon small-margin"></p-icon>
+        <a (click)="downloadSampleFile()" class="download-files">
+          {{ uploadSectionsInputs.sampleFileText }}
+        </a>
+      </div>
+      <div>
+        <ng-container *ngIf="importCenterConfig?.extras">
+          <div class="sample-container" *ngFor="let link of importCenterConfig?.extras">
+            <p-icon class="pi pi-download  accepted-icon small-margin"></p-icon>
+            <a class="download-files" [href]="link.link" target="_blank">
+              {{ link.name }}
+            </a>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <p-fileUpload #PT [fileLimit]="filesNumber" [cancelIcon]="cancelIcon" [multiple]="isMultiple"
+    [maxFileSize]="maxFileSize" [accept]="validTypes"
+    [invalidFileSizeMessageSummary]="invalidMessages.invalidFileSizeMessageSummary"
+    [invalidFileSizeMessageDetail]="invalidMessages.invalidFileSizeMessageDetail"
+    [invalidFileTypeMessageDetail]="invalidMessages.invalidFileTypeMessageDetail"
+    [invalidFileTypeMessageSummary]="invalidMessages.invalidFileTypeMessageSummary" [customUpload]="true"
+    [showCancelButton]="false" dragHighlight="true" [uploadLabel]="uploadSectionsInputs.uploadLabel"
+    [uploadIcon]="uploadSectionsInputs.uploadIcon" [chooseLabel]="uploadSectionsInputs.selectFileLabel"
+    (uploadHandler)="upload($event, PT)" (onSelect)="onSelect($event)" (onRemove)="onRemove(PT)">
+    <ng-template pTemplate="content">
+      <div id="uploadFile_card_upload" class="upload" *ngIf="showDragIcon && PT._files.length === 0">
+        <div id="uploadFile_card_upload_step1" class="step1">
+          <input id="uploadFile_card_upload_step1_input" type="file" [accept]="validTypes"
+            (change)="onFileSelected($event, PT)" />
+          <div id="uploadFile_card_upload_step1_icon" class="icon">
+            <span id="uploadFile_card_upload_step1_icon_span" class="pi pi-cloud-upload"></span>
+          </div>
+          <div id="uploadFile_card_upload_step1_browse" class="browse">
+            {{uploadSectionsInputs.dragText}} Or {{uploadSectionsInputs.browseFileText}}
+          </div>
+          <div class="hint-info"><i *ngIf="infoText" class="pi pi-info-circle small-margin"></i>{{ infoText }}</div>
+          <p-messages></p-messages>
+        </div>
+      </div>
+    </ng-template>
+  </p-fileUpload>
+
+</div>
+
+
+<div *ngIf="exportActions.length > 0">
+  <div class="download-response-container">
+    <div *ngFor="let action of exportActions" class="sample-container" [id]="'export-action-container_'+ action.name">
+      <div class="label-container" *ngIf="action.isLabel;else actionButton">
+        <p-icon *ngIf="action.hasIcon" class="pi pi-file-import small-margin accepted-icon"
+          [ngClass]="{'grey-icon': action.name==='total_imported'}"></p-icon>
+        <label class="download-files"> {{action.label}}</label>
+      </div>
+      <ng-template #actionButton>
+        <p-icon *ngIf="action.hasIcon" class="pi pi-download small-margin accepted-icon"
+          [ngClass]="{'red-icon': action.name==='rejected', 'grey-icon': action.name==='manual_action'}"></p-icon>
+        <a (click)="onClickExportAction(action)" class="download-files">
+          {{action.label}}{{action.records.length}}</a>
+      </ng-template>
+    </div>
+
+  </div>
+  <static-table [showToolTip]="showToolTip" [data]="rejectedList" errorRowName="errors"
+    *ngIf="hasRejectedRows"></static-table>
+</div>

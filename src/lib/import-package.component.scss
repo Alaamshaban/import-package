@@ -1,0 +1,169 @@
+.upload {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+
+  .step1 {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    input[type="file"] {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      width: 100%;
+    }
+
+
+
+    .browse {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+  }
+}
+
+.upload-container {
+  ::ng-deep .p-fileupload-buttonbar {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border: unset !important;
+    background-color: #fff !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  ::ng-deep .p-fileupload-content .p-progressbar {
+    width: 0px !important;
+  }
+
+  ::ng-deep .p-fileupload .p-fileupload-content {
+    display: flex;
+    border: 1px dashed;
+    height: 14rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+
+    .p-fileupload-files {
+      width: -webkit-fill-available;
+    }
+  }
+
+  ::ng-deep .p-message-wrapper {
+    margin-top: 1.5rem;
+  }
+
+
+  ::ng-deep .p-button {
+    width: 10%;
+    margin-right: 10px;
+    color: gray;
+    background: transparent !important;
+    border: 1px solid gray !important;
+    min-width: 100px !important;
+
+    ::ng-deep .p-button-icon {
+      color: #48c5ba;
+    }
+  }
+
+  .hints {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+
+    .link {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      cursor: pointer;
+    }
+  }
+}
+
+
+.download-files {
+  display: flex;
+  flex-direction: row;
+  color: gray;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: underline;
+  font-family: "regular 29 LT Azer";
+}
+
+.accepted-icon {
+  margin-left: 0.5rem;
+  color: #48c5ba;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+
+  span {
+    font-size: 32px;
+    color: grey;
+  }
+}
+
+.label-container {
+  display: flex;
+}
+
+.sample-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.5rem;
+}
+
+.download-response-container {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed;
+}
+
+.red-icon {
+  color: red;
+  margin-left: 0.5rem;
+}
+
+.grey-icon {
+  color: grey;
+  margin-left: 0.5rem;
+}
+
+.hint-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #48c5ba;
+  font-size: 14px;
+}
+
+.small-margin {
+  margin-right: 0.5rem;
+}
